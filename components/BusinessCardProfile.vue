@@ -14,7 +14,7 @@
 
       <PhoneReveal :phone-number="user.phone" />
 
-      <button class="business-card__download">
+      <button class="business-card__button-main business-card__download">
         Pobierz dane użytkownika
       </button>
     </div>

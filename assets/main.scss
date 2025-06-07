@@ -18,71 +18,112 @@ html, body {
 
 .business-card {
   max-width: 1344px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 120px 16px 60px;
+  padding: 0;
+  @media screen and (min-width: 1200px) {
+    height: auto;
+    padding: 120px 16px 60px;
+  }
+
+  &__button-main {
+    background-color: #3AAEE3;
+    color: #fff;
+  }
 
   &__container {
-    padding: 170px 80px 130px 70px;
+    height: 100%;
+    padding: 70px 0;
     background-color: #E8EAE9;
-    border-radius: 40px;
+    @media screen and (min-width: 768px) {
+      padding: 70px 16px;
+    }
+    @media screen and (min-width: 1200px) {
+      padding: 170px 80px 130px 70px;
+      border-radius: 40px;
+    }
   }
 
   &__profile {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    padding: 0 30px 30px;
+    padding: 30px;
     background-color: #1F3B71;
     color: #fff;
-    border-radius: 10px;
-    box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
+    @media screen and (min-width: 768px) {
+      justify-content: flex-start;
+      border-radius: 10px;
+      box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
+    }
   }
 
   &__avatar {
     width: 230px;
     height: 230px;
-    margin: -25px 0 0;
+    margin: -55px 0 0;
     border-radius: 10px;
     outline: 3px solid #fff;
   }
 
   &__info {
-    margin-top: 12px;
+    @media screen and (min-width: 768px) {
+      margin-top: 12px;
+    }
   }
 
   &__name {
+    margin: 0 0 14px;
     font-size: 29px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 24px;
+    }
   }
 
   &__phone-toggle {
     margin-left: 5px;
     padding: 3px 5px;
-    background-color: #3AAEE3;
     font-size: 10px;
     vertical-align: middle;
   }
 
   &__download {
-    position: absolute;
-    top: 27px;
-    right: 28px;
     padding: 5px;
     border-radius: 10px 0 10px 0;
-    background-color: #3AAEE3;
     font-size: 16px;
-    color: #fff;
+    @media screen and (min-width: 1200px) {
+      position: absolute;
+      top: 27px;
+      right: 28px;
+    }
   }
 
   &__about {
-    width: 95%;
-    margin: 0 auto;
+    padding: 20px 16px 40px;
     background-color: #53A8DD;
-    border-radius: 0 0 10px 10px;
+    @media screen and (min-width: 768px) {
+      margin: 0 28px;
+      padding: 40px 85px 40px 32px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
+    }
 
     p {
+      display: inline;
       margin: 0;
-      padding: 50px 95px 50px 42px;
       font-size: 16px;
     }
+  }
+
+  &__about-wrapper {
+    padding: 10px;
+    border: 1px solid #3AAEE3;
+  }
+  
+  &__about-toggle {
+    display: block;
+    border-radius: 10px 0 10px 0;
   }
 }
