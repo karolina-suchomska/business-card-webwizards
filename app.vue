@@ -1,38 +1,28 @@
 <template>
   <div class="business-card">
     <div class="business-card__container">
-      <div v-if="store.loading">Ładowanie...</div>
-      <div v-else-if="store.error">Błąd: {{ store.error }}</div>
-      <div v-else-if="store.user">
-        <div class="business-card__header">
-          <img
-            :src="`${store.user.image.baseUrl}${store.user.image.filename}.${store.user.image.extension}`"
-            :alt="store.user.name"
-            class="business-card__img"
-          />
-          <div class="business-card__box">
-            <h2>{{ store.user.name }} {{ store.user.surname }}</h2>
-            <p>Email: {{ store.user.email }}</p>
-            <p>Numer telefonu: {{ store.user.phone }}</p>
-          </div>
-        </div>
-        <p>{{ store.user.about }}</p>
+      <div v-if="store.loading" class="business-card__loading">Ładowanie...</div>
+      <div v-else-if="store.error" class="business-card__error">Błąd: {{ store.error }}</div>
+      <div v-else-if="store.user" class="business-card__content">
+        <BusinessCardProfile :user="store.user" />
+        <BusinessCardAbout :about="store.user.about" />
       </div>
     </div>
-  
   </div>
-
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useUserStore } from '@/stores/main'
+import { onMounted } from 'vue';
+import { useUserStore } from '@/stores/main';
 
-const store = useUserStore()
+import BusinessCardProfile from '@/components/BusinessCardProfile.vue';
+import BusinessCardAbout from '@/components/BusinessCardAbout.vue';
+
+const store = useUserStore();
 
 onMounted(() => {
   if (!store.user) {
-    store.fetchUser()
+    store.fetchUser();
   }
 })
 </script>

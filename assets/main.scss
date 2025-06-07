@@ -2,35 +2,87 @@ html, body {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   margin: 0;
+
+  a { 
+    color: #3499CE;
+    text-decoration: none;
+  }
+
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 
 .business-card {
-  padding: 100px 16px 60px;
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 120px 16px 60px;
+
   &__container {
-    max-width: 1344px;
-    margin: 0 auto;
-    padding: 90px 60px;
+    padding: 170px 80px 130px 70px;
     background-color: #E8EAE9;
-    border-radius: 30px;
+    border-radius: 40px;
   }
 
-  &__header {
+  &__profile {
+    position: relative;
     display: flex;
     gap: 30px;
-    padding: 0 30px 20px;
+    padding: 0 30px 30px;
     background-color: #1F3B71;
     color: #fff;
     border-radius: 10px;
     box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
-
   }
 
-  &__img {
-    width: 150px;
-    height: 150px;
-    margin: -20px 0 0;
+  &__avatar {
+    width: 230px;
+    height: 230px;
+    margin: -25px 0 0;
     border-radius: 10px;
     outline: 3px solid #fff;
+  }
+
+  &__info {
+    margin-top: 12px;
+  }
+
+  &__name {
+    font-size: 29px;
+  }
+
+  &__phone-toggle {
+    margin-left: 5px;
+    padding: 3px 5px;
+    background-color: #3AAEE3;
+    font-size: 10px;
+    vertical-align: middle;
+  }
+
+  &__download {
+    position: absolute;
+    top: 27px;
+    right: 28px;
+    padding: 5px;
+    border-radius: 10px 0 10px 0;
+    background-color: #3AAEE3;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  &__about {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #53A8DD;
+    border-radius: 0 0 10px 10px;
+
+    p {
+      margin: 0;
+      padding: 50px 95px 50px 42px;
+      font-size: 16px;
+    }
   }
 }
