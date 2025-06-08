@@ -1,7 +1,7 @@
 <template>
   <div class="business-card__about">
-    <div class="business-card__about-wrapper">
-      <p v-for="(paragraph, index) in displayedParagraphs" :key="index">
+    <div class="business-card__about-wrapper" :class="{ 'expanded': isExpanded }" >
+      <p v-for="(paragraph, index) in displayedParagraphs" :key="paragraph + index">
         {{ paragraph }}
       </p>
     </div>
@@ -18,7 +18,6 @@ import { ref, computed } from 'vue';
 const { about } = defineProps<{
   about: string
 }>();
-
 
 const isExpanded = ref(false);
 

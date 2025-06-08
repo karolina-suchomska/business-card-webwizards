@@ -27,6 +27,7 @@ import { computed } from 'vue';
 import avatarPlaceholder from '@/assets/img/avatar-placeholder.png';
 import PhoneReveal from './PhoneReveal.vue';
 
+const store = useUserStore();
 const props = defineProps<{
   user: {
     name: string
@@ -37,28 +38,16 @@ const props = defineProps<{
       baseUrl: string
       filename: string
       extension: string
-    },
-    about: string
+    }
   }
 }>();
 
 const imageSrc = computed(() => {
-  const img = props.user.image
-  return img?.baseUrl && img.filename && img.extension ? `${img.baseUrl}${img.filename}.${img.extension}` : avatarPlaceholder
+  const { image } = props.user;
+  return image?.baseUrl && image.filename && image.extension ? `${image.baseUrl.replace(/\/?$/, '/')}${image.filename}.${image.extension}` : avatarPlaceholder;
 });
 
 const handleDownload = () => {
-  const url = URL.createObjectURL(
-    new Blob([JSON.stringify(props.user, null, 2)], {
-      type: 'application/json'
-    })
-  )
-
-  Object.assign(document.createElement('a'), {
-    href: url,
-    download: 'user-data.json'
-  }).click()
-
-  URL.revokeObjectURL(url)
+  store.downloadUserData()
 }
 </script>

@@ -116,6 +116,20 @@ html, body {
   &__about-wrapper {
     padding: 10px;
     border: 1px solid $color-primary;
+
+    overflow: hidden;
+    max-height: 100px;
+    transition: max-height 0.9s ease;
+    @media screen and (min-width: $breakpoint-md) {
+      max-height: 60px;
+    }
+  
+    &.expanded {
+      max-height: 400px;
+      @media screen and (min-width: $breakpoint-md) {
+        max-height: 200px;
+      }
+    }
   }
   
   &__about-toggle {

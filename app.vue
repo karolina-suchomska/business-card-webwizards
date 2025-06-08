@@ -22,7 +22,7 @@ import BusinessCardAbout from '@/components/BusinessCardAbout.vue';
 const store = useUserStore();
 
 onMounted(() => {
-  if (!store.user) {
+  if (!store.fullResult) {
     store.fetchUser();
   }
 })

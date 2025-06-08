@@ -7,7 +7,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 const { error } = defineProps<{
   error: string
