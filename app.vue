@@ -1,6 +1,8 @@
 <template>
   <div class="business-card">
-    <div v-if="store.loading" class="business-card__loading">Ładowanie...</div>
+    <div v-if="store.loading" class="business-card__loading">
+      <span class="business-card__spinner"></span>
+    </div>
     <BusinessCardError v-else-if="store.error" :error="store.error" />
     <div v-else-if="store.user" class="business-card__container">
       <div class="business-card__content">
