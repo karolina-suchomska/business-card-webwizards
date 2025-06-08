@@ -1,3 +1,5 @@
+@use './variables' as vars;
+
 .error-message {
   max-width: 700px;
   display: flex;
@@ -6,24 +8,24 @@
   padding: 20px;
   margin: 50px 16px;
   background-color: #ffecec;
-  color: #b00020;
-  border-right: 2px solid #b00020;
-  border-bottom: 2px solid #b00020;
-  border-radius: 10px;
+  color: vars.$color-error;
+  border-right: 2px solid vars.$color-error;
+  border-bottom: 2px solid vars.$color-error;
+  border-radius: vars.$radius-box;
   font-size: 15px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: vars.$breakpoint-md) {
     margin: 50px auto;
   }
-}
 
-.error-message__icon {
-  min-width: 30px;
-  height: 30px;
-  display: inline;
-  fill: #b00020;
-}
+  &__icon {
+    min-width: 30px;
+    height: 30px;
+    display: inline;
+    fill: vars.$color-error;
+  }
 
-.error-message__text {
-  margin: 0;
-  line-height: 1;
+  &__text {
+    margin: 0;
+    line-height: 1;
+  }
 }

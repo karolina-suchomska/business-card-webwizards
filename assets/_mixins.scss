@@ -1,0 +1,11 @@
+@use './variables' as vars;
+
+@mixin business-card-button($font-size: 14px, $padding: 5px, $radius: vars.$radius-button) {
+  display: inline-block;
+  padding: $padding;
+  font-size: $font-size;
+  border-radius: $radius;
+  background-color: vars.$color-primary;
+  color: vars.$color-white;
+  cursor: pointer;
+}

@@ -1,12 +1,15 @@
+@use './variables' as *;
+@use './mixins' as *;
 @use './error-message';
 
 html, body {
   box-sizing: border-box;
-  font-family: Roboto, sans-serif;
+  font-family: $font-family-main;
   margin: 0;
+  color: $color-text;
 
   a { 
-    color: #3499CE;
+    color: $color-link;
     text-decoration: none;
   }
 
@@ -22,27 +25,21 @@ html, body {
   height: 100vh;
   margin: 0 auto;
   padding: 0;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $breakpoint-lg) {
     height: auto;
-  }
-
-  
-  &__button-main {
-    background-color: #3AAEE3;
-    color: #fff;
   }
 
   &__container {
     height: 100%;
     padding: 70px 0;
-    background-color: #E8EAE9;
-    @media screen and (min-width: 768px) {
+    background-color: $color-background;
+    @media screen and (min-width: $breakpoint-md) {
       padding: 70px 16px;
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: $breakpoint-lg) {
       padding: 170px 80px 130px 70px;
       margin: 90px 16px 60px;
-      border-radius: 40px;
+      border-radius: $radius-card;
     }
   }
 
@@ -53,12 +50,12 @@ html, body {
     justify-content: center;
     gap: 30px;
     padding: 30px;
-    background-color: #1F3B71;
-    color: #fff;
-    @media screen and (min-width: 768px) {
+    background-color: $color-surface;
+    color: $color-white;
+    @media screen and (min-width: $breakpoint-md) {
       justify-content: flex-start;
-      border-radius: 10px;
-      box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
+      border-radius: $radius-box;
+      box-shadow: 9px 9px 25px 0 rgba($color-text, 0.4);
     }
   }
 
@@ -66,12 +63,12 @@ html, body {
     width: 230px;
     height: 230px;
     margin: -55px 0 0;
-    border-radius: 10px;
-    outline: 3px solid #fff;
+    border-radius: $radius-box;
+    outline: 3px solid $color-white;
   }
 
   &__info {
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $breakpoint-md) {
       margin-top: 12px;
     }
   }
@@ -79,23 +76,20 @@ html, body {
   &__name {
     margin: 0 0 14px;
     font-size: 29px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $breakpoint-md) {
       margin-bottom: 24px;
     }
   }
 
   &__phone-toggle {
+    @include business-card-button(10px, 3px 5px, 0);
     margin-left: 5px;
-    padding: 3px 5px;
-    font-size: 10px;
     vertical-align: middle;
   }
 
   &__download {
-    padding: 5px;
-    border-radius: 10px 0 10px 0;
-    font-size: 16px;
-    @media screen and (min-width: 1200px) {
+    @include business-card-button(16px);
+    @media screen and (min-width: $breakpoint-lg) {
       position: absolute;
       top: 27px;
       right: 28px;
@@ -104,28 +98,27 @@ html, body {
 
   &__about {
     padding: 20px 16px 40px;
-    background-color: #53A8DD;
-    @media screen and (min-width: 768px) {
+    background-color: $color-secondary;
+    @media screen and (min-width: $breakpoint-md) {
       margin: 0 28px;
       padding: 40px 85px 40px 32px;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 9px 9px 25px 0 rgba(#000, 0.4);
+      border-radius: 0 0 $radius-box $radius-box;
+      box-shadow: 9px 9px 25px 0 rgba($color-text, 0.4);
     }
 
     p {
       display: inline;
       margin: 0;
-      font-size: 16px;
+      font-size: $font-size-base;
     }
   }
 
   &__about-wrapper {
     padding: 10px;
-    border: 1px solid #3AAEE3;
+    border: 1px solid $color-primary;
   }
   
   &__about-toggle {
-    display: block;
-    border-radius: 10px 0 10px 0;
+    @include business-card-button;
   }
 }
