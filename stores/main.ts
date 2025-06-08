@@ -34,7 +34,7 @@ export const useUserStore = defineStore('user', {
         const result = await response.json()
 
         if (!response.ok) {
-          throw new Error(`${result.message || 'Wystąpił błąd'} (status ${response.status})`)
+          throw new Error(`(status ${response.status}) ${result.message + ' (Złapane, pokazane. Frontend nie pyta – frontend naprawia 💅☕️)' || 'Wystąpił błąd'}`)
         }      
 
         this.user = result.data
